@@ -12,12 +12,10 @@
 package com.xsjt.dynamicDataSource;  
 import java.util.ArrayList;
 import java.util.List;
-/**  
- * ClassName:DynamicDataSourceContextHolder 
- * Date:     2017年11月13日 下午7:41:49
- * @author   Joe  
- * @version    
- * @since    JDK 1.8
+/**
+ * @author: 喜🐑
+ * @create: 2018-12-04 13:53
+ * 切花数据源的类
  */
 public class DynamicDataSourceContextHolder {
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();

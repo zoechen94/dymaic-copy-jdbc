@@ -10,13 +10,9 @@
 */  
 package com.xsjt.dynamicDataSource;  
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
-/**  
- * ClassName:DynamicDataSource 
- * 继承Spring AbstractRoutingDataSource实现路由切换
- * Date:     2017年11月13日 下午7:49:49
- * @author   Joe  
- * @version    
- * @since    JDK 1.8
+/**
+ * @author: 喜🐑
+ * @create: 2018-12-06 10:11
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
     

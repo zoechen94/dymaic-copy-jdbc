@@ -17,12 +17,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**  
- * ClassName:TargetDataSource 
- * Date:     2017年11月13日 下午7:42:15
- * @author   Joe  
- * @version    
- * @since    JDK 1.8
+/**
+ * @author: 喜🐑
+ * @create: 2018-12-09 14:32
  */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

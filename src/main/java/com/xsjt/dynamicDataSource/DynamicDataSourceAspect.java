@@ -18,12 +18,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-/**  
- * ClassName:DynamicDataSourceAspect 
- * Date:     2017年11月13日 下午7:44:09
- * @author   Joe  
- * @version    
- * @since    JDK 1.8
+/**
+ * @author: 喜🐑
+ * @create: 2018-12-06 17:12
  */
 @Aspect
 //保证该AOP在@Transactional之前执行

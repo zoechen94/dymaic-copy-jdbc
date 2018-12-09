@@ -28,12 +28,9 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotationMetadata;
-/**  
- * ClassName:DynamicDataSourceRegister 
- * Date:     2017年11月13日 下午7:40:42
- * @author   Joe  
- * @version    
- * @since    JDK 1.8
+/**
+ * @author: 喜🐑
+ * @create: 2018-12-07 11:03
  */
 public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar, EnvironmentAware {
     private static final Logger logger = LoggerFactory.getLogger(DynamicDataSourceRegister.class);
