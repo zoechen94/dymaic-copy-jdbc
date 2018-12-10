@@ -10,6 +10,9 @@
 */  
 package com.xsjt.dynamicDataSource;  
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
+
+import javax.sql.DataSource;
+
 /**
  * @author: 喜🐑
  * @create: 2018-12-06 10:11
@@ -20,4 +23,14 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     protected Object determineCurrentLookupKey() {
         return DynamicDataSourceContextHolder.getDataSourceType();
     }
+
+    public DataSource getAcuallyDataSource() {
+        Object lookupKey = determineCurrentLookupKey();
+        if(null == lookupKey) {
+            return this;
+        }
+        DataSource determineTargetDataSource = this.determineTargetDataSource();
+        return determineTargetDataSource==null ? this : determineTargetDataSource;
+    }
+
 }

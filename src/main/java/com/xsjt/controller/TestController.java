@@ -1,8 +1,11 @@
 package com.xsjt.controller;
 
+import com.xsjt.dynamicDataSource.TargetDataSource;
 import com.xsjt.service.TestService;
 import com.xsjt.util.ResponseBean;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +37,13 @@ private TestService testService;
 
     @ApiOperation("得到")
     @GetMapping("/one")
-    public ResponseBean getOne(){
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "database",defaultValue = "ds1",value = "数据库",dataType = "String",paramType = "query"),
+            @ApiImplicitParam(name = "table",defaultValue = "ad",value = "表",dataType = "String",paramType = "query")
+    })
+    public ResponseBean getOne(String database,String table){
         return ResponseBean.success(testService.listRole());
     }
+
+
 }
