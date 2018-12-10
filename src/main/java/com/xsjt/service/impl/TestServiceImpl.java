@@ -6,6 +6,8 @@ import com.xsjt.bean.UserDO;
 import com.xsjt.dao.InfoDOMapper;
 import com.xsjt.dao.RoleDOMapper;
 import com.xsjt.dao.UserDOMapper;
+import com.xsjt.dynamicDataSource.DynamicDataSource;
+import com.xsjt.dynamicDataSource.DynamicDataSourceContextHolder;
 import com.xsjt.dynamicDataSource.TargetDataSource;
 import com.xsjt.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +33,10 @@ public class TestServiceImpl implements TestService {
         return userDOMapper.listUser();
     }
 
-    @TargetDataSource(name = "ds1")
+
     @Override
     public List<RoleDO> listRole() {
+        DynamicDataSourceContextHolder.setDataSourceType("ds1");
         return roleDOMapper.listRole();
     }
 

@@ -3639,3 +3639,266 @@ Caused by: java.lang.IllegalArgumentException: ProceedingJoinPoint is only suppo
 2018-12-10 17:46:29.757 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
 2018-12-10 17:46:29.886 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-2} inited
 2018-12-10 17:46:47.319 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-3} inited
+2018-12-10 17:49:06.807 [Thread-26] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5812f68b: startup date [Mon Dec 10 17:45:58 CST 2018]; root of context hierarchy
+2018-12-10 17:49:06.812 [Thread-26] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-12-10 17:49:12.355 [main] INFO  com.xsjt.SpringbootTestApplication -Starting SpringbootTestApplication on yalandeMacBook-Pro.local with PID 1087 (started by yalan in /Users/yalan/Desktop/投保基金/spring-boot-learn)
+2018-12-10 17:49:12.360 [main] INFO  com.xsjt.SpringbootTestApplication -No active profile set, falling back to default profiles: default
+2018-12-10 17:49:12.436 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1817d444: startup date [Mon Dec 10 17:49:12 CST 2018]; root of context hierarchy
+2018-12-10 17:49:13.219 [main] ERROR c.a.d.pool.DruidAbstractDataSource -maxIdle is deprecated
+2018-12-10 17:49:13.233 [main] ERROR c.a.d.pool.DruidAbstractDataSource -maxIdle is deprecated
+2018-12-10 17:49:13.242 [main] ERROR c.a.d.pool.DruidAbstractDataSource -maxIdle is deprecated
+2018-12-10 17:49:13.788 [main] INFO  c.x.d.DynamicDataSourceRegister -Dynamic DataSource Registry
+2018-12-10 17:49:13.945 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-10 17:49:14.493 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ec396060] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-10 17:49:15.230 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8787 (http)
+2018-12-10 17:49:15.240 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-12-10 17:49:15.241 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-12-10 17:49:15.499 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner -At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-12-10 17:49:15.502 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-12-10 17:49:15.503 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 3067 ms
+2018-12-10 17:49:15.816 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-12-10 17:49:15.820 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-10 17:49:15.821 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-10 17:49:15.821 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-10 17:49:15.821 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-10 17:49:17.581 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/one],methods=[GET]}" onto public com.xsjt.util.ResponseBean com.xsjt.controller.TestController.getOne(java.lang.String,java.lang.String)
+2018-12-10 17:49:17.582 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/all],methods=[GET]}" onto public com.xsjt.util.ResponseBean com.xsjt.controller.TestController.getAll()
+2018-12-10 17:49:17.583 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/v2/api-docs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String)
+2018-12-10 17:49:17.587 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-12-10 17:49:17.588 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-12-10 17:49:17.588 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-12-10 17:49:17.591 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-10 17:49:17.592 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-10 17:49:18.786 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1817d444: startup date [Mon Dec 10 17:49:12 CST 2018]; root of context hierarchy
+2018-12-10 17:49:18.939 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-10 17:49:18.940 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-10 17:49:19.013 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-10 17:49:19.663 [main] INFO  o.s.w.s.v.f.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-12-10 17:49:20.486 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-12-10 17:49:20.507 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper -Context refreshed
+2018-12-10 17:49:20.522 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper -Found {0} custom documentation plugin(s)
+2018-12-10 17:49:20.530 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Scanning for api listing references
+2018-12-10 17:49:20.534 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getAll was test-controller
+2018-12-10 17:49:20.536 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Request mapping: getAll belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.xsjt.controller.TestController}]] 
+2018-12-10 17:49:20.537 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getOne was test-controller
+2018-12-10 17:49:20.538 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Request mapping: getOne belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.xsjt.controller.TestController}]] 
+2018-12-10 17:49:20.541 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Created resource listing Path: /default/test-controller Description: test-controller Position: 0
+2018-12-10 17:49:20.564 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.565 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache models with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.570 [main] INFO  s.d.s.p.ModelPropertiesKeyGenerator -Cache key generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.570 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelProperties with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.597 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.597 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelDependencies with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.600 [main] INFO  s.d.s.p.ModelPropertiesKeyGenerator -Cache key generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.601 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelProperties with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.604 [main] INFO  s.d.s.web.OperationsKeyGenerator -Cache key generated: /api/all.com.xsjt.controller.TestController.getAll.DefaultGenericTypeNamingStrategy
+2018-12-10 17:49:20.604 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache operations with key /api/all.com.xsjt.controller.TestController.getAll.DefaultGenericTypeNamingStrategy
+2018-12-10 17:49:20.612 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getAll was test-controller
+2018-12-10 17:49:20.622 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getAll was test-controller
+2018-12-10 17:49:20.630 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.630 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache models with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.630 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.631 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelDependencies with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:49:20.631 [main] INFO  s.d.s.web.OperationsKeyGenerator -Cache key generated: /api/one.com.xsjt.controller.TestController.getOne.DefaultGenericTypeNamingStrategy
+2018-12-10 17:49:20.631 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache operations with key /api/one.com.xsjt.controller.TestController.getOne.DefaultGenericTypeNamingStrategy
+2018-12-10 17:49:20.637 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getOne was test-controller
+2018-12-10 17:49:20.640 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getOne was test-controller
+2018-12-10 17:49:20.715 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8787 (http)
+2018-12-10 17:49:20.723 [main] INFO  com.xsjt.SpringbootTestApplication -Started SpringbootTestApplication in 8.849 seconds (JVM running for 9.756)
+2018-12-10 17:49:30.033 [http-nio-8787-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-12-10 17:49:30.033 [http-nio-8787-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-12-10 17:49:30.068 [http-nio-8787-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 34 ms
+2018-12-10 17:49:33.664 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2018-12-10 17:49:33.750 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-2} inited
+2018-12-10 17:49:33.761 [http-nio-8787-exec-6] INFO  o.s.b.f.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-12-10 17:49:33.795 [http-nio-8787-exec-6] INFO  o.s.j.support.SQLErrorCodesFactory -SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-12-10 17:49:33.806 [http-nio-8787-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'db1.role' doesn't exist
+### The error may exist in file [/Users/yalan/Desktop/投保基金/spring-boot-learn/target/classes/mapper/RoleDOMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select * from role
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'db1.role' doesn't exist
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'db1.role' doesn't exist] with root cause
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'db1.role' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2487)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy95.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:137)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:75)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy98.listRole(Unknown Source)
+	at com.xsjt.service.impl.TestServiceImpl.listRole(TestServiceImpl.java:37)
+	at com.xsjt.service.impl.TestServiceImpl$$FastClassBySpringCGLIB$$9201deca.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.xsjt.service.impl.TestServiceImpl$$EnhancerBySpringCGLIB$$c9413352.listRole(<generated>)
+	at com.xsjt.controller.TestController.getAll(TestController.java:34)
+	at com.xsjt.controller.TestController$$FastClassBySpringCGLIB$$f7720164.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.xsjt.controller.TestController$$EnhancerBySpringCGLIB$$38c739c5.getAll(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-12-10 17:51:18.621 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1817d444: startup date [Mon Dec 10 17:49:12 CST 2018]; root of context hierarchy
+2018-12-10 17:51:18.627 [Thread-22] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-12-10 17:51:24.111 [main] INFO  com.xsjt.SpringbootTestApplication -Starting SpringbootTestApplication on yalandeMacBook-Pro.local with PID 1093 (started by yalan in /Users/yalan/Desktop/投保基金/spring-boot-learn)
+2018-12-10 17:51:24.116 [main] INFO  com.xsjt.SpringbootTestApplication -No active profile set, falling back to default profiles: default
+2018-12-10 17:51:24.232 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ca8564a: startup date [Mon Dec 10 17:51:24 CST 2018]; root of context hierarchy
+2018-12-10 17:51:25.029 [main] ERROR c.a.d.pool.DruidAbstractDataSource -maxIdle is deprecated
+2018-12-10 17:51:25.041 [main] ERROR c.a.d.pool.DruidAbstractDataSource -maxIdle is deprecated
+2018-12-10 17:51:25.055 [main] ERROR c.a.d.pool.DruidAbstractDataSource -maxIdle is deprecated
+2018-12-10 17:51:25.535 [main] INFO  c.x.d.DynamicDataSourceRegister -Dynamic DataSource Registry
+2018-12-10 17:51:25.692 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-10 17:51:26.264 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a84f5b39] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-10 17:51:26.995 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8787 (http)
+2018-12-10 17:51:27.005 [main] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-12-10 17:51:27.006 [main] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-12-10 17:51:27.267 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner -At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-12-10 17:51:27.270 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-12-10 17:51:27.271 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 3039 ms
+2018-12-10 17:51:27.576 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-12-10 17:51:27.580 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-10 17:51:27.581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-10 17:51:27.581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-10 17:51:27.581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-10 17:51:29.354 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/one],methods=[GET]}" onto public com.xsjt.util.ResponseBean com.xsjt.controller.TestController.getOne(java.lang.String,java.lang.String)
+2018-12-10 17:51:29.355 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/all],methods=[GET]}" onto public com.xsjt.util.ResponseBean com.xsjt.controller.TestController.getAll()
+2018-12-10 17:51:29.356 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/v2/api-docs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String)
+2018-12-10 17:51:29.360 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-12-10 17:51:29.361 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-12-10 17:51:29.361 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-12-10 17:51:29.364 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-10 17:51:29.365 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-10 17:51:30.537 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ca8564a: startup date [Mon Dec 10 17:51:24 CST 2018]; root of context hierarchy
+2018-12-10 17:51:30.690 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-10 17:51:30.691 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-10 17:51:30.762 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-10 17:51:31.374 [main] INFO  o.s.w.s.v.f.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-12-10 17:51:32.229 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-12-10 17:51:32.249 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper -Context refreshed
+2018-12-10 17:51:32.264 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper -Found {0} custom documentation plugin(s)
+2018-12-10 17:51:32.274 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Scanning for api listing references
+2018-12-10 17:51:32.279 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getAll was test-controller
+2018-12-10 17:51:32.283 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Request mapping: getAll belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.xsjt.controller.TestController}]] 
+2018-12-10 17:51:32.284 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getOne was test-controller
+2018-12-10 17:51:32.284 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Request mapping: getOne belongs to groups: [[ResourceGroup{groupName='test-controller', position=0, controller=com.xsjt.controller.TestController}]] 
+2018-12-10 17:51:32.288 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Created resource listing Path: /default/test-controller Description: test-controller Position: 0
+2018-12-10 17:51:32.307 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.307 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache models with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.313 [main] INFO  s.d.s.p.ModelPropertiesKeyGenerator -Cache key generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.313 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelProperties with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.341 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.341 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelDependencies with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.344 [main] INFO  s.d.s.p.ModelPropertiesKeyGenerator -Cache key generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.344 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelProperties with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.347 [main] INFO  s.d.s.web.OperationsKeyGenerator -Cache key generated: /api/all.com.xsjt.controller.TestController.getAll.DefaultGenericTypeNamingStrategy
+2018-12-10 17:51:32.347 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache operations with key /api/all.com.xsjt.controller.TestController.getAll.DefaultGenericTypeNamingStrategy
+2018-12-10 17:51:32.355 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getAll was test-controller
+2018-12-10 17:51:32.365 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getAll was test-controller
+2018-12-10 17:51:32.373 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.373 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache models with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.373 [main] INFO  s.d.schema.ModelContextKeyGenerator -Cache Key Generated: com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.374 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache modelDependencies with key com.xsjt.util.ResponseBean(true)
+2018-12-10 17:51:32.374 [main] INFO  s.d.s.web.OperationsKeyGenerator -Cache key generated: /api/one.com.xsjt.controller.TestController.getOne.DefaultGenericTypeNamingStrategy
+2018-12-10 17:51:32.374 [main] INFO  s.d.spring.web.caching.CachingAspect -Caching aspect applied for cache operations with key /api/one.com.xsjt.controller.TestController.getOne.DefaultGenericTypeNamingStrategy
+2018-12-10 17:51:32.381 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getOne was test-controller
+2018-12-10 17:51:32.383 [main] INFO  s.d.s.w.ClassOrApiAnnotationResourceGrouping -Group for method getOne was test-controller
+2018-12-10 17:51:32.465 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8787 (http)
+2018-12-10 17:51:32.475 [main] INFO  com.xsjt.SpringbootTestApplication -Started SpringbootTestApplication in 8.854 seconds (JVM running for 9.731)
+2018-12-10 17:51:34.865 [http-nio-8787-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-12-10 17:51:34.865 [http-nio-8787-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-12-10 17:51:34.899 [http-nio-8787-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+2018-12-10 17:51:39.045 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2018-12-10 17:51:39.129 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-2} inited
+2018-12-10 17:51:39.901 [http-nio-8787-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-3} inited

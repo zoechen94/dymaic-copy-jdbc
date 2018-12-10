@@ -1,6 +1,7 @@
 package com.xsjt.dao;
 
 import com.xsjt.bean.RoleDO;
+import com.xsjt.dynamicDataSource.TargetDataSource;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public interface RoleDOMapper {
     int updateByPrimaryKeySelective(RoleDO record);
 
     int updateByPrimaryKey(RoleDO record);
+
 
     List<RoleDO> listRole();
 }
