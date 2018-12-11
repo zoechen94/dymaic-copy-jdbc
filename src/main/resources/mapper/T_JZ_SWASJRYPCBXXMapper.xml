@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xsjt.dao.T_JZ_SWASJRYPCBXXMapper">
+  <resultMap id="BaseResultMap" type="com.xsjt.bean.T_JZ_SWASJRYPCBXX">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="QTMC" jdbcType="VARCHAR" property="qtmc" />
+    <result column="QTDM" jdbcType="VARCHAR" property="qtdm" />
+    <result column="AJMC" jdbcType="VARCHAR" property="ajmc" />
+    <result column="XM" jdbcType="VARCHAR" property="xm" />
+    <result column="SFZH" jdbcType="VARCHAR" property="sfzh" />
+    <result column="JTZZ" jdbcType="VARCHAR" property="jtzz" />
+    <result column="LXFS" jdbcType="VARCHAR" property="lxfs" />
+    <result column="HJ" jdbcType="VARCHAR" property="hj" />
+    <result column="SWSY" jdbcType="VARCHAR" property="swsy" />
+    <result column="BZ" jdbcType="VARCHAR" property="bz" />
+    <result column="LRPT" jdbcType="VARCHAR" property="lrpt" />
+    <result column="RKSJ" jdbcType="VARCHAR" property="rksj" />
+    <result column="DQ" jdbcType="VARCHAR" property="dq" />
+    <result column="RYBQ" jdbcType="VARCHAR" property="rybq" />
+    <result column="PC" jdbcType="VARCHAR" property="pc" />
+    <result column="PCID" jdbcType="VARCHAR" property="pcid" />
+    <result column="YXX" jdbcType="VARCHAR" property="yxx" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, QTMC, QTDM, AJMC, XM, SFZH, JTZZ, LXFS, HJ, SWSY, BZ, LRPT, RKSJ, DQ, RYBQ, PC, 
+    PCID, YXX
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_JZ_SWASJRYPCBXX
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_JZ_SWASJRYPCBXX
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xsjt.bean.T_JZ_SWASJRYPCBXX">
+    insert into T_JZ_SWASJRYPCBXX (ID, QTMC, QTDM, 
+      AJMC, XM, SFZH, JTZZ, 
+      LXFS, HJ, SWSY, BZ, 
+      LRPT, RKSJ, DQ, RYBQ, 
+      PC, PCID, YXX)
+    values (#{id,jdbcType=VARCHAR}, #{qtmc,jdbcType=VARCHAR}, #{qtdm,jdbcType=VARCHAR}, 
+      #{ajmc,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{sfzh,jdbcType=VARCHAR}, #{jtzz,jdbcType=VARCHAR}, 
+      #{lxfs,jdbcType=VARCHAR}, #{hj,jdbcType=VARCHAR}, #{swsy,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, 
+      #{lrpt,jdbcType=VARCHAR}, #{rksj,jdbcType=VARCHAR}, #{dq,jdbcType=VARCHAR}, #{rybq,jdbcType=VARCHAR}, 
+      #{pc,jdbcType=VARCHAR}, #{pcid,jdbcType=VARCHAR}, #{yxx,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xsjt.bean.T_JZ_SWASJRYPCBXX">
+    insert into T_JZ_SWASJRYPCBXX
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="qtmc != null">
+        QTMC,
+      </if>
+      <if test="qtdm != null">
+        QTDM,
+      </if>
+      <if test="ajmc != null">
+        AJMC,
+      </if>
+      <if test="xm != null">
+        XM,
+      </if>
+      <if test="sfzh != null">
+        SFZH,
+      </if>
+      <if test="jtzz != null">
+        JTZZ,
+      </if>
+      <if test="lxfs != null">
+        LXFS,
+      </if>
+      <if test="hj != null">
+        HJ,
+      </if>
+      <if test="swsy != null">
+        SWSY,
+      </if>
+      <if test="bz != null">
+        BZ,
+      </if>
+      <if test="lrpt != null">
+        LRPT,
+      </if>
+      <if test="rksj != null">
+        RKSJ,
+      </if>
+      <if test="dq != null">
+        DQ,
+      </if>
+      <if test="rybq != null">
+        RYBQ,
+      </if>
+      <if test="pc != null">
+        PC,
+      </if>
+      <if test="pcid != null">
+        PCID,
+      </if>
+      <if test="yxx != null">
+        YXX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="qtmc != null">
+        #{qtmc,jdbcType=VARCHAR},
+      </if>
+      <if test="qtdm != null">
+        #{qtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="ajmc != null">
+        #{ajmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null">
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jtzz != null">
+        #{jtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="lxfs != null">
+        #{lxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="hj != null">
+        #{hj,jdbcType=VARCHAR},
+      </if>
+      <if test="swsy != null">
+        #{swsy,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="lrpt != null">
+        #{lrpt,jdbcType=VARCHAR},
+      </if>
+      <if test="rksj != null">
+        #{rksj,jdbcType=VARCHAR},
+      </if>
+      <if test="dq != null">
+        #{dq,jdbcType=VARCHAR},
+      </if>
+      <if test="rybq != null">
+        #{rybq,jdbcType=VARCHAR},
+      </if>
+      <if test="pc != null">
+        #{pc,jdbcType=VARCHAR},
+      </if>
+      <if test="pcid != null">
+        #{pcid,jdbcType=VARCHAR},
+      </if>
+      <if test="yxx != null">
+        #{yxx,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xsjt.bean.T_JZ_SWASJRYPCBXX">
+    update T_JZ_SWASJRYPCBXX
+    <set>
+      <if test="qtmc != null">
+        QTMC = #{qtmc,jdbcType=VARCHAR},
+      </if>
+      <if test="qtdm != null">
+        QTDM = #{qtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="ajmc != null">
+        AJMC = #{ajmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        XM = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null">
+        SFZH = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jtzz != null">
+        JTZZ = #{jtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="lxfs != null">
+        LXFS = #{lxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="hj != null">
+        HJ = #{hj,jdbcType=VARCHAR},
+      </if>
+      <if test="swsy != null">
+        SWSY = #{swsy,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        BZ = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="lrpt != null">
+        LRPT = #{lrpt,jdbcType=VARCHAR},
+      </if>
+      <if test="rksj != null">
+        RKSJ = #{rksj,jdbcType=VARCHAR},
+      </if>
+      <if test="dq != null">
+        DQ = #{dq,jdbcType=VARCHAR},
+      </if>
+      <if test="rybq != null">
+        RYBQ = #{rybq,jdbcType=VARCHAR},
+      </if>
+      <if test="pc != null">
+        PC = #{pc,jdbcType=VARCHAR},
+      </if>
+      <if test="pcid != null">
+        PCID = #{pcid,jdbcType=VARCHAR},
+      </if>
+      <if test="yxx != null">
+        YXX = #{yxx,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xsjt.bean.T_JZ_SWASJRYPCBXX">
+    update T_JZ_SWASJRYPCBXX
+    set QTMC = #{qtmc,jdbcType=VARCHAR},
+      QTDM = #{qtdm,jdbcType=VARCHAR},
+      AJMC = #{ajmc,jdbcType=VARCHAR},
+      XM = #{xm,jdbcType=VARCHAR},
+      SFZH = #{sfzh,jdbcType=VARCHAR},
+      JTZZ = #{jtzz,jdbcType=VARCHAR},
+      LXFS = #{lxfs,jdbcType=VARCHAR},
+      HJ = #{hj,jdbcType=VARCHAR},
+      SWSY = #{swsy,jdbcType=VARCHAR},
+      BZ = #{bz,jdbcType=VARCHAR},
+      LRPT = #{lrpt,jdbcType=VARCHAR},
+      RKSJ = #{rksj,jdbcType=VARCHAR},
+      DQ = #{dq,jdbcType=VARCHAR},
+      RYBQ = #{rybq,jdbcType=VARCHAR},
+      PC = #{pc,jdbcType=VARCHAR},
+      PCID = #{pcid,jdbcType=VARCHAR},
+      YXX = #{yxx,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="listAll" resultMap="BaseResultMap">
+    select * from T_JZ_SWASJRYPCBXX
+  </select>
+</mapper>

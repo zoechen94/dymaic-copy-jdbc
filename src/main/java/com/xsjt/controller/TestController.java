@@ -46,4 +46,15 @@ private TestService testService;
     }
 
 
+    @ApiOperation("得到Oracle里的数据")
+    @GetMapping("/oracle")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "database",defaultValue = "ds3",value = "数据库",dataType = "String",paramType = "query"),
+            @ApiImplicitParam(name = "table",defaultValue = "T_JZ_SWASJRYPCBXX",value = "表",dataType = "String",paramType = "query")
+    })
+    public ResponseBean getOracle(String database,String table){
+        return
+                ResponseBean.success(testService.getDs1AndDs3());
+    }
+
 }

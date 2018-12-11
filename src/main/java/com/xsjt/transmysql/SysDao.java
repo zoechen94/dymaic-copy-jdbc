@@ -175,22 +175,21 @@ public class SysDao {
                 preSql = new SqlUtil().addPreSql(targetConn, tableName);
             }
             PreparedStatement targetPstmt = targetConn.prepareStatement(preSql);
-            //批处理 10 条处理
-            int page = size / 5;
+            //批处理 1000条一次
+            int page = size / 1000;
             for (int i = 0; i < page + 1; i++) {
-                int size2 = i * 5;
+                int size2 = i * 1000;
                 String seleSql = "";
                 if (souceType.equals("mysql")) {
-                    seleSql = "select *  from " + tableName + " limit " + size2 + ",5 ";
+                    seleSql = "select *  from " + tableName + " limit " + size2 + ",1000 ";
                 } else {
                     seleSql = "SELECT * FROM  (  SELECT A.*, ROWNUM RN  FROM (SELECT * FROM " + tableName + ") A  )  WHERE RN BETWEEN " + (size2+1) +
-                            " AND " + (size2 + 5);
+                            " AND " + (size2 + 1000);
                 }
 
                 ResultSet coreRs = coreStmt.executeQuery(seleSql);
                 while (coreRs.next()) {
                     while (++c < b) {
-                        System.out.println(coreRs.getObject(c));
                         targetPstmt.setObject(c, coreRs.getObject(c));
                     }
                     c = 0;
