@@ -14,11 +14,5 @@ target/
 *.iws
 *.iml
 *.ipr
+*.log
 
-### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/

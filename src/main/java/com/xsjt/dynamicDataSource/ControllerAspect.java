@@ -48,8 +48,6 @@ public class ControllerAspect {
     private String password;
 
 
-    private Map<String, DataSource> customDataSources = new HashMap<String, DataSource>();
-
     @Pointcut("execution(public * com.xsjt.controller.*.*(..))")
     public void addAdvice() {
     }
