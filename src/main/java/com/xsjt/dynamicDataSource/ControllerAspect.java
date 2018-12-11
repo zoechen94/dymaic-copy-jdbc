@@ -34,7 +34,7 @@ import java.util.Map;
 public class ControllerAspect {
 
     @Autowired
-    Environment ev ;
+    Environment ev;
     @Value("${spring.datasource.driver-class-name}")
     private String driver;
 
@@ -49,65 +49,85 @@ public class ControllerAspect {
 
 
     private Map<String, DataSource> customDataSources = new HashMap<String, DataSource>();
+
     @Pointcut("execution(public * com.xsjt.controller.*.*(..))")
-    public void addAdvice(){}
+    public void addAdvice() {
+    }
 
     @Before("addAdvice()")
-    public void Interceptor( JoinPoint point) throws SQLException {
+    public void Interceptor(JoinPoint point) throws SQLException {
         Object[] paramValues = point.getArgs();
         String[] paramNames = ((CodeSignature) point
                 .getSignature()).getParameterNames();
-        int k=-1;
-        int tableIndex=0;
-        for(int i=0;i<paramNames.length;i++){
-            if("database".equals(paramNames[i])){
-                k=i;
-                for(int j=0;i<paramNames.length;j++){
-                    if("table".equals(paramNames[j])){
-                        tableIndex=j;
+        int k = -1;
+        int tableIndex = 0;
+        for (int i = 0; i < paramNames.length; i++) {
+            if ("database".equals(paramNames[i])) {
+                k = i;
+                for (int j = 0; i < paramNames.length; j++) {
+                    if ("table".equals(paramNames[j])) {
+                        tableIndex = j;
                         break;
                     }
                 }
                 break;
             }
         }
-        if(k!=-1){
-            String ds=paramValues[k].toString();
-            executeSql(getLocalDB(url),ds,paramValues[tableIndex].toString());
+        if (k != -1) {
+            String ds = paramValues[k].toString();
+            Map<String, String> map = initMap(ev, ds);
+            /**
+             * 本地是Mysql，故不需要判断driver
+             */
+            executeSql(getLocalDB(url, "mysql"), ds, paramValues[tableIndex].toString(), map);
         }
     }
 
     /**
      * 截取jdbc:mysql://localhost:3306/db1?useUnicode=true&characterEncoding=utf-8 中的db1(数据库)
+     *
      * @param url
      * @return
      */
-    public String getLocalDB(String url){
-        String localDB=url.substring(url.lastIndexOf("/")+1,url.length());
-        return localDB.substring(0,localDB.lastIndexOf("?"));
+    public String getLocalDB(String url, String type) {
+        String localDB = "";
+        switch (type) {
+            case "mysql":
+                localDB = url.substring(url.lastIndexOf("/") + 1, url.length());
+                localDB = localDB.substring(0, localDB.lastIndexOf("?"));
+                break;
+            case "oracle":
+
+                break;
+            default:
+                break;
+        }
+        return localDB;
     }
 
     /**
      * 执行表复制的操作
+     *
      * @param nativeDataBase
      * @param ds
      * @param tableName
      * @return
      */
-    public int executeSql(String nativeDataBase,String ds,String tableName) {
+    public int executeSql(String nativeDataBase, String ds, String tableName, Map<String, String> map) throws SQLException {
         //本地数据库名字
-        Connection natiCon = new ConnectionDateBases().getConnection(driver,url,userName,password);
-        Map<String,String> map=initMap(ev,ds);
-        String sourceDataName=getLocalDB(map.get("url"));//真正的数据库名字 这里的url是键
+        Connection natiCon = new ConnectionDateBases().getConnection(driver, url, userName, password);
+        String sourceType=map.get("driver-class-name").contains("mysql") ? "mysql" : "oracle";
+        String sourceDataName = getLocalDB(map.get("url"),sourceType);//真正的数据库名字 这里的url是键
         Connection targetCon = new ConnectionDateBases().getConnection(map.get("driver-class-name"),
-                map.get("url"),map.get("username"),map.get("password"));
+                map.get("url"), map.get("username"), map.get("password"));
         SysDao dao = new SysDao();
+
         //创建表结构
-        new SysDao().moveUse(targetCon,natiCon,nativeDataBase,sourceDataName,tableName);
+        new SysDao().moveUse(targetCon, natiCon, nativeDataBase, sourceDataName, tableName,sourceType);
         //多加一个时间字段
-        dao.alertTime(natiCon,  tableName);
+        dao.alertTime(natiCon, tableName);
         //同步数据
-        dao.launchSyncData(targetCon, natiCon, tableName, null, null,nativeDataBase);//todo date delete
+        dao.launchSyncData(targetCon, natiCon, tableName, null, null, nativeDataBase,sourceType);//todo date delete
         if (targetCon != null) {
             try {
                 targetCon.close();
@@ -125,12 +145,12 @@ public class ControllerAspect {
         return 0;
     }
 
-    private Map<String,String> initMap(Environment env,String ds) {
+    private Map<String, String> initMap(Environment env, String ds) {
         // 读取主数据源
-        RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "custom.datasource."+ds+".");
+        RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "custom.datasource." + ds + ".");
         Map<String, String> dsMap = new HashMap<String, String>();
         dsMap.put("type", propertyResolver.getProperty("type"));
-        dsMap.put("driver-class-name",propertyResolver.getProperty("driver-class-name"));
+        dsMap.put("driver-class-name", propertyResolver.getProperty("driver-class-name"));
         dsMap.put("url", propertyResolver.getProperty("url"));
         dsMap.put("username", propertyResolver.getProperty("username"));
         dsMap.put("password", propertyResolver.getProperty("password"));

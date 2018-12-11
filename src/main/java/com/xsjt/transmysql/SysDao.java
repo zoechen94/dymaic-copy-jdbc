@@ -1,5 +1,9 @@
 package com.xsjt.transmysql;
 
+import com.alibaba.druid.util.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +13,7 @@ import java.util.List;
  * @create: 2018-12-10 00:07
  **/
 public class SysDao {
+    private Logger log = LoggerFactory.getLogger(SysDao.class);
     ConnectionDateBases dataBase = new ConnectionDateBases();
 
     /**
@@ -149,9 +154,9 @@ public class SysDao {
     /**
      * 同步表数据
      **/
-    public void launchSyncData(Connection coreConnection, Connection targetConn, String tableName, String fromdate, String todate, String nativeSource) {
+    public void launchSyncData(Connection coreConnection, Connection targetConn, String tableName, String fromdate, String todate, String nativeSource, String souceType) {
         if (fromdate == null || todate == null) {
-            this.trunTable(targetConn,  tableName);
+            this.trunTable(targetConn, tableName);
         }
         try {
             Statement coreStmt = coreConnection.createStatement();
@@ -160,28 +165,32 @@ public class SysDao {
             //有时间限制
             List list = new SysDao().getTableCount(coreConnection, tableName, fromdate, todate);
             int size = Integer.parseInt(list.get(0).toString());
-            int a = field.size(); //19
+            int a = field.size();
             int b = a;
             int c = 0;
             //默认全量pre语句
-            String preSql =  new SqlUtil().preSql(targetConn,tableName);
+            String preSql = new SqlUtil().preSql(targetConn, tableName);
             if (fromdate != null && todate != null) {
                 //增量
-                preSql = new SqlUtil().addPreSql(targetConn,tableName);
+                preSql = new SqlUtil().addPreSql(targetConn, tableName);
             }
             PreparedStatement targetPstmt = targetConn.prepareStatement(preSql);
             //批处理 10 条处理
-            int page = size / 1000;
+            int page = size / 5;
             for (int i = 0; i < page + 1; i++) {
-                int size2 = i * 1000;
-                String seleSql = "select *  from " + tableName + " limit " + size2 + ",1000 ";
-                if (fromdate != null && todate != null) {
-                    seleSql = "select *  from " + tableName + " where createtime > ' " + fromdate + " '  and  createtime <  ' " + todate + " '  limit " + size2 + ",1000";
+                int size2 = i * 5;
+                String seleSql = "";
+                if (souceType.equals("mysql")) {
+                    seleSql = "select *  from " + tableName + " limit " + size2 + ",5 ";
+                } else {
+                    seleSql = "SELECT * FROM  (  SELECT A.*, ROWNUM RN  FROM (SELECT * FROM " + tableName + ") A  )  WHERE RN BETWEEN " + (size2+1) +
+                            " AND " + (size2 + 5);
                 }
+
                 ResultSet coreRs = coreStmt.executeQuery(seleSql);
                 while (coreRs.next()) {
-//                    targetPstmt.setObject(1, null);
                     while (++c < b) {
+                        System.out.println(coreRs.getObject(c));
                         targetPstmt.setObject(c, coreRs.getObject(c));
                     }
                     c = 0;
@@ -198,47 +207,120 @@ public class SysDao {
 
 
     /**
-     * by ysh 查询某库下的表所有字段
+     * 查询某库下的表所有字段
      **/
-    public List<TableStructure> listsql(Connection con, String databasename, String tablename) {
+    public List<TableStructure> listsql(Connection con, String databasename, String tablename, String type) {
         PreparedStatement ptst = null;
         ResultSet rs;
         List<TableStructure> field = new ArrayList(); //字段
-        final String sql = "describe " + databasename + "." + tablename + "";
-        try {
-            ptst = con.prepareStatement(sql);
-            rs = ptst.executeQuery();
-            while (rs.next()) {
-                TableStructure tablestructure = new TableStructure();
-                tablestructure.setField(rs.getString("Field"));
-                tablestructure.setType(rs.getString("type"));
-                tablestructure.setNull(rs.getString("Null"));
-                tablestructure.setKey(rs.getString("key"));
-                tablestructure.setDefault(rs.getString("Default"));
-                tablestructure.setExtra(rs.getString("Extra"));
-                field.add(tablestructure);
-            }
-            dataBase.free(null, ptst, null, rs);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        String sql;
+
+        switch (type) {
+            case "mysql":
+                sql = "describe " + databasename + "." + tablename + "";
+                try {
+                    ptst = con.prepareStatement(sql);
+                    rs = ptst.executeQuery();
+                    while (rs.next()) {
+                        TableStructure tablestructure = new TableStructure();
+                        tablestructure.setField(rs.getString("Field"));
+                        tablestructure.setType(rs.getString("type"));
+                        tablestructure.setNull(rs.getString("Null"));
+                        tablestructure.setKey(rs.getString("key"));
+                        tablestructure.setDefault(rs.getString("Default"));
+                        tablestructure.setExtra(rs.getString("Extra"));
+                        field.add(tablestructure);
+                    }
+                    dataBase.free(null, ptst, null, rs);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "oracle":
+                sql = "select COLUMN_NAME as field,DATA_TYPE as type,DATA_LENGTH as length,NULLABLE ,data_default from \n" +
+                        "user_tab_columns where Table_Name= '" + tablename + "'";
+
+                try {
+                    ptst = con.prepareStatement(sql);
+                    rs = ptst.executeQuery();
+                    while (rs.next()) {
+                        TableStructure t = new TableStructure();
+                        int length = rs.getInt("LENGTH");
+                        String columnType = rs.getString("TYPE");
+                        String defaultValue = rs.getString("DATA_DEFAULT");
+                        String isNull = rs.getString("NULLABLE").equals("Y") ? "YES" : "NO";
+                        t.setNull(isNull);
+                        t.setField(rs.getString("FIELD").toLowerCase());
+                        if ("INTEGER".equalsIgnoreCase(columnType)) {
+                            //INTEGER -> int
+                            t.setType(" int(" + length + ")");
+                        } else if ("SMALLINT".equalsIgnoreCase(columnType)) {
+                            //INTEGER -> smallint
+                            t.setType(" smallint(" + length + ")");
+                        } else if ("NUMBER".equalsIgnoreCase(columnType)) {
+                            if (0 > 0) {
+                                //number  -> double
+                                t.setType(" double(" + length + "," + 2 + ")"); //TODO DODO
+                            } else {
+                                //number -> bigint
+                                t.setType(" bigint(" + length + ")");
+                            }
+                        } else if ("DATE".equalsIgnoreCase(columnType) || "TIMESTAMP".equalsIgnoreCase(columnType)) {
+                            //DATE TIMESTAMP -> datetime
+                            t.setType(" datetime ");
+                            if (!StringUtils.isEmpty(defaultValue)) {
+                                if ("sysdate".equalsIgnoreCase(defaultValue.trim()) || defaultValue.trim().startsWith("to_char")) {
+                                    defaultValue = " now() ";
+                                }
+                            }
+                        } else if ("CHAR".equalsIgnoreCase(columnType)) {
+                            // VARCHAR2 -> varchar
+                            t.setType(" char(" + length + ")");
+                        } else if ("VARCHAR2".equalsIgnoreCase(columnType)) {
+                            // VARCHAR2 -> varchar
+                            t.setType(" varchar(" + length + ")");
+                        } else {
+                            log.error("没有对应的类型处理  type = " + columnType);
+                            log.error("退出");
+                            return null;
+                        }
+                        if (!"DATE".equalsIgnoreCase(columnType) && !"TIMESTAMP".equalsIgnoreCase(columnType)) {
+                            //DATE TIMESTAMP -> datetime
+                            if (!StringUtils.isEmpty(defaultValue)) {
+                                if ("sysdate".equalsIgnoreCase(defaultValue.trim()) || defaultValue.trim().startsWith("to_char")) {
+                                    defaultValue = "now()";
+                                    t.setType("datetime");
+                                }
+                            }
+                        }
+                        t.setDefault(defaultValue);
+                        field.add(t);
+                    }
+                    dataBase.free(null, ptst, null, rs);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            default:
+                break;
         }
+
         return field;
     }
 
 
-
     /**
      * 切换用户进行 创建表结构
-     * **/
+     **/
 
-    public void moveUse(Connection source,Connection con,String localDB, String sourcebaseName,String tableName) {
+    public void moveUse(Connection source, Connection con, String localDB, String sourcebaseName, String tableName, String sourceType) {
         //clone_
         PreparedStatement move_ptst = null;
         PreparedStatement drop_ptst = null;
         PreparedStatement table_ptst = null;
-        String  move_sql = new SqlUtil().useSQL(localDB); //由sorcebaseName改为本地库
-        String drop_sql=new SqlUtil().Tableexist(tableName);
-        String create_sql=new SqlUtil().allSql(source,sourcebaseName,tableName);
+        String move_sql = new SqlUtil().useSQL(localDB);
+        String drop_sql = new SqlUtil().Tableexist(tableName);
+        String create_sql = new SqlUtil().allSql(source, sourcebaseName, tableName, sourceType);
         try {
             move_ptst = con.prepareStatement(move_sql);
             move_ptst.execute();

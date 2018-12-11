@@ -73,22 +73,24 @@ public class SqlUtil {
      * 拿到另一个库中额中的表字段 by ysh
      **/
 
-    public String allSql(Connection con, String databasename, String tablename) {
+    public String allSql(Connection con, String databasename, String tablename,String sourceType) {
 
-        List<TableStructure> list = new SysDao().listsql(con, databasename, tablename);
+        List<TableStructure> list = new SysDao().listsql(con, databasename, tablename,sourceType);
         String alllsitsql = "";
         for (TableStructure tablestructure : list) {
             alllsitsql += "`" + tablestructure.getField() + "`" + "  " + tablestructure.getType() + " ";
             if (tablestructure.getNull().equals("NO")) {
                 alllsitsql += "NOT NULL" + " ";
             }
-            if (tablestructure.getExtra().equals("auto_increment") && tablestructure.getKey().equals("PRI")) {
+            if (tablestructure.getExtra()!=null && tablestructure.getExtra().equals("auto_increment") && tablestructure.getKey().equals("PRI")) {
                 alllsitsql += "AUTO_INCREMENT" + ",";
             }
             if (tablestructure.getDefault() == null && tablestructure.getNull().trim().equals("YES")) {
                 alllsitsql += "DEFAULT NULL " + " ";
+            }else if(tablestructure.getDefault()!=null){
+                alllsitsql += "DEFAULT "+tablestructure.getDefault();
             }
-            if (tablestructure.getKey().trim().contains("PRI")) {
+            if (tablestructure.getKey()!=null && tablestructure.getKey().trim().contains("PRI")) {
                 alllsitsql += " PRIMARY KEY (`" + tablestructure.getField() + "`)";
             }
             alllsitsql += ",";
